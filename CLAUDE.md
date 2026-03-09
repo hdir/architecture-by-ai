@@ -82,48 +82,10 @@ Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHD
 
 ### Ved oppretting eller oppdatering av filer:
 - Oppdater relevant index.md med metadata om endringen
-- Inkluder: filnavn, beskrivelse, hva som dekkes
+- Inkluder: filnavn, beskrivelse, endret dato
 - Bruk filnavn uten datoer siden filer vil bli løpende revidert
 
-## Arbeidsflyt
-
-### 0. Spør brukeren om modus
-- **Diskusjonsmodus**: Åpen diskusjon om diverse tema
-- **Rapportmodus**: Gjennomfør analyse i henhold 
-
-### 1. Forstå kravene
-
-Først må du lese grundig og internalisere all informasjonen i `rammer/`-mappen
-
-* Identifiser alle uttalte krav
-* Noter hvilke krav som er obligatoriske kontra anbefalte
-* Forstå de underliggende prinsippene og hensikten
-* Map krav mot relevante IHE-standarder (XDS, XCA, XUA, MHD)
-* Lag en strukturert sjekkliste over hva du skal se etter
-
-**Hvis noen krav er uklare eller virker selvmotsigende, STOPP og be brukeren om avklaring før du fortsetter.**
-
-### 2. Innhent aktørinformasjon
-
-* Les `implemenetasjon_lenker.json` for å få informasjon om implemenetasjon
-* Bruk tilgjengelige MCP-verktøy for å hente og tolke dokumentasjon fra de oppgitte URL-ene
-* Om nødvendig kan du lage nye markdown filer som oppsummerer hva du finner
-* Dokumenter eventuelle URL-er som ikke kunne nås
-
-### 3. Analyser samsvar
-
-* Sjekk systematisk mot hvert krav
-* Bruk din kunnskap om IHE-standarder for å tolke tekniske implementeringer
-* Se etter eksplisitte referanser og implisitte bevis
-* Merk: **Vær konservativ i dine tolkninger**
-* Hvis noe er uklart, marker det som "uavklart" fremfor å gjøre antakelser
-* Skill mellom "etterlever ikke" og "ingen bevis funnet"
-* Siter spesifikke avsnitt fra aktørens dokumentasjon når du hevder samsvar eller avvik
-
-**Hvis aktørens dokumentasjon bruker terminologi du er usikker på, eller hvis vurdering av samsvar krever domeneekspertise utover ditt sikkerhetsnivå, må du eksplisitt spørre brukeren**
-**Likevel:** Hvis du støter på tekniske detaljer der du er usikker på om en implementering faktisk tilfredsstiller et standardkrav, oppgi din usikkerhet eksplisitt og be om veiledning.
-
-### 4. Generer rapporter
+### Generer rapporter
 
 Opprett rapporter, for eksempel samsvarsrapporter, i `rapporter/`-mappen
 
@@ -137,9 +99,9 @@ Opprett rapporter, for eksempel samsvarsrapporter, i `rapporter/`-mappen
 * Referanser til bevis (sitater og lenker til kildemateriale)
 * Om mulig, forsøk å knytte funn til aktørnavn
 
-### 5. Lag visualiseringer
+### Lag visualiseringer
 
-Generer selvstendige HTML-filer i `visualiseringer/` som best kommuniserer funnene dine.
+Generer selvstendige HTML-filer i `visualiseringer/` som best kommuniserer funnene dine. Visualiseinger skal alltid være basert på rapporter og skal ikke inneholde informasjon som ikke finnes i en eller flere rapporter. Det skal alltid stå tydelig i visualiseringen hvilke rapport(er) den er basert på
 
 **Tenk kreativt om hvilke visualiseringer som vil være mest nyttige gitt dine faktiske funn.** Forslagene nedenfor er bare eksempler for å komme i gang – du bør designe visualiseringer som forteller historien analysen din avdekker:
 
@@ -156,6 +118,9 @@ Generer selvstendige HTML-filer i `visualiseringer/` som best kommuniserer funne
 * Hvilke mønstre dukket opp i analysen din?
 * Hvilke sammenligninger ville vært mest informative?
 * Hva ville hjulpet med å prioritere neste handlinger?
+* Hvordan bør resultatene presenteres for ledelsen (ledersammendrag, nøkkeltall)?
+* Hvordan kommuniserer avvik hos en eller flere aktører (konstruktivt, spesifikt)?
+* Hvilke funn krever umiddelbar oppmerksomhet kontra langsiktig forbedring?
 
 **Tekniske krav til visualiseringer:**
 
@@ -163,14 +128,6 @@ Generer selvstendige HTML-filer i `visualiseringer/` som best kommuniserer funne
 * Bruk Chart.js, D3.js eller ren JavaScript
 * Inkluder en tittel og kort beskrivelse
 * Skal kunne åpnes direkte i alle nettlesere uten en server
-
-### 6. Foreslå kommunikasjonsstrategi
-
-Basert på funnene dine, foreslå:
-
-* Hvordan resultatene bør presenteres for ledelsen (ledersammendrag, nøkkeltall)
-* Hvordan man kommuniserer med aktører om avvik (konstruktivt, spesifikt)
-* Hvilke funn som krever umiddelbar oppmerksomhet kontra langsiktig forbedring
 
 ## Viktige retningslinjer
 
@@ -192,22 +149,6 @@ Basert på funnene dine, foreslå:
 * Oppretthold en profesjonell, nøytral tone
 * Din analyse informerer menneskelige beslutninger, men tar ikke endelige avgjørelser
 
-### Begrensninger som må anerkjennes
-
-* Du kan bare vurdere det som er publisert; aktører kan etterleve krav uten å ha dokumentert det
-* Teknisk terminologi kan være tvetydig
-* Krav kan være åpne for tolkning
-* Kontekst betyr noe – det som fungerer for én aktør, passer kanskje ikke for en annen
-
-### Kvalitetskontroll
-
-Før du ferdigstiller en rapport:
-
-* Har du sjekket hvert eneste krav?
-* Er funnene dine støttet av bevis?
-* Har du skilt mellom "ikke-samsvar" og "ukjent"?
-* Er anbefalingene konstruktive og praktisk gjennomførbare?
-
 ## Kvalitetskrav for leveranser
 
 ### Rapporter skal være:
@@ -225,9 +166,6 @@ Før du ferdigstiller en rapport:
 * **Tilgjengelige**: Funger på ulike enheter, bruk tydelige farger
 * **Selvstendige**: Ingen eksterne avhengigheter eller byggesteg
 
-## Spørsmål du skal stille meg
-
-**Du bør aktivt be om avklaring – ikke gjett!** Dette er kritisk for å produsere pålitelig analyse.
 
 ### Spør alltid når du støter på:
 
