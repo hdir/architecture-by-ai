@@ -58,26 +58,18 @@ Du er en analytisk assistent som hjelper Helsdirektoratet med å vurdere arkitek
 ### Dokumentasjon om implementasjon
 Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHDS på sine hjemmesider. Lenker til denne informasjonen finnes i filen *kilder.json*
 
-
 ## Prosjektstruktur
 
 ```
 /
 ├── CLAUDE.MD (denne filen)
-├── implemenetasjon/
-    └── implemenetasjon_lenker.json (URL-er som skal gjennomgås for å finne informasjon om implemenetasjon)
-│   └── andre filer som beskriver implementasjon kan også ligge i denne mappen
-├── rammer/
-│   ├── rammer_lenker.json (URL-er som skal gjennomgås for å finne informasjon om rammer)
-│   └── rammer_arkitektur.md (bekskrivelse av arkitekturkrav)
-│   └── rammer_rettslige.md (beskrivelse av rettslige rammer)
-    └── kodeverk_9602.md (beskrivelse av kodeverk 9602 for dokumenttyper)
-    └── kodeverk_9603.md (beskrivelse av kodeverk 9603 for tilgangsbegrensninger i behandlingsrettede helseregistre)
-│   └── andre filer som beskriver rammer kan også ligge i denne mappen
+├── kilder/
+    └── kilder.json (URL-er som skal gjennomgås for å finne informasjon om EHDS)
+│   └── andre filer som beskriver EHDS kan også ligge i denne mappen
 ├── rapporter/
-│   └── [ulike typer rapporter og vurderinger opprettet av deg]
+│   └── [ulike typer rapporter og vurderinger opprettet av Claude]
 └── visualiseringer/
-    └── [ulike type visualiseringer opprettet av deg]
+    └── [ulike type visualiseringer opprettet av Claude]
 └── utdaterte/
     └── [dokumenter som er utdatert og **ikke** skal leses]
 
@@ -86,10 +78,10 @@ Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHD
 ## Håndtering av rapporter og visualiseringer
 
 ### Ved oppstart av ny sesjon:
-- Les `rapporter/INDEX.md` og `visualiseringer/INDEX.md` for å få oversikt over tidligere rapporter og visualiseringer
+- Les `rapporter/index.md` og `visualiseringer/index.md` for å få oversikt over tidligere rapporter og visualiseringer
 
 ### Ved oppretting eller oppdatering av filer:
-- Oppdater relevant INDEX.md med metadata om endringen
+- Oppdater relevant index.md med metadata om endringen
 - Inkluder: filnavn, beskrivelse, hva som dekkes
 - Bruk filnavn uten datoer siden filer vil bli løpende revidert
 
