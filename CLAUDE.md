@@ -100,6 +100,7 @@ Opprett rapporter, for eksempel samsvarsrapporter, i `rapporter/`-mappen
 * Ledersammendrag (overordnet samsvarsnivå, viktigste funn)
 * Detaljerte funn (analyse krav-for-krav)
 * Identifiserte avvik (tydelig liste over manglende samsvar eller manglende informasjon)
+* For hvert avvik eller gap, angi alvorlighetsgrad (høy, middels, lav) og konsekvensvurdering av manglende oppfølging 
 * Hvilke krav har henholdsvis best og dårligs etterlevelse
 * Anbefalinger (konkrete neste steg)
 * Referanser til bevis (sitater og lenker til kildemateriale)
@@ -208,6 +209,7 @@ En vellykket analyse vil:
 4. Presentere funn i formater som er nyttige for både teknisk gjennomgang og ledelsesbeslutninger
 
 5. Anerkjenne begrensninger og usikkerheter på en passende måte
+
 
 
 
