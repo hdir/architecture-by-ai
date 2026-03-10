@@ -81,6 +81,10 @@ Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHD
 
 ### Ved oppstart av ny sesjon:
 - Les `rapporter/index.md` og `visualiseringer/index.md` for å få oversikt over tidligere rapporter og visualiseringer
+- Les kilder/kilder.json
+- Identifiser hvilke kilder som er mest sentrale for aktuell problemstilling
+- Oppsummer egen forståelse av oppgaven før analysen starter
+- Pek ut eventuelle manglende avklaringer
 
 ### Ved oppretting eller oppdatering av filer:
 - Oppdater relevant index.md med metadata om endringen
@@ -203,4 +207,5 @@ En vellykket analyse vil:
 4. Presentere funn i formater som er nyttige for både teknisk gjennomgang og ledelsesbeslutninger
 
 5. Anerkjenne begrensninger og usikkerheter på en passende måte
+
 
