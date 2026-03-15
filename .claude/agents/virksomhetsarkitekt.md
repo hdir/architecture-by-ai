@@ -28,7 +28,9 @@ Sikre at de seks minimumskravene er adressert:
 6. Forutsetninger for gjennomføring
 
 ### 3. Modeller og visualiser
-Lag diagrammer med Mermaid og ArchiMate-konvensjoner:
+Lag diagrammer med PlantUML og/eller Draw.io med ArchiMate-konvensjoner:
+- **PlantUML** (.puml): For tekstbaserte, versjonskontrollerte diagrammer og raske skisser
+- **Draw.io** (.drawio): For komplekse, interaktive diagrammer og presentasjonsklare visninger
 - Bruk lagdelte visninger (forretning=gul, applikasjon=blå, teknologi=grønn)
 - Vis dataflyt og avhengigheter
 - Identifiser gap og manglende forbindelser
@@ -51,7 +53,7 @@ Når problemstillingen krever det, anbefal at følgende agenter konsulteres:
 
 Returner en helhetsvurdering med:
 - **Situasjonsbeskrivelse**: Kort oppsummering av problemet og konteksten
-- **Arkitekturdiagram(mer)**: Mermaid-diagrammer med ArchiMate-konvensjoner
+- **Arkitekturdiagram(mer)**: PlantUML- og/eller Draw.io-diagrammer med ArchiMate-konvensjoner
 - **Analyse per lag**:
   - Forretningslag: Prosesser, aktører, tjenester som berøres
   - Applikasjonslag: Systemer, grensesnitt, dataflyt
@@ -60,6 +62,22 @@ Returner en helhetsvurdering med:
 - **Alternativer**: Minst to reelle alternativer pluss nullalternativet
 - **Anbefaling**: Tydelig anbefaling med begrunnelse
 - **Neste steg**: Konkrete handlinger for å komme videre
+
+### HTML-rapport (ferdigstillingsfase)
+
+Når en utredning er komplett (alle delrapporter og visualiseringer er ferdige), skal virksomhetsarkitekten som siste steg generere en navigerbar HTML-rapport i `rapporter/html/`:
+
+1. **index.html**: Forside med innholdsfortegnelse, ordliste og samlet kildeliste
+2. **ledersammendrag.html**: Ledersammendraget fra den samlede rapporten
+3. **Én HTML-fil per delrapport**: Konverter ALL tekst fra markdown til HTML
+4. **visualiseringer.html**: Lenker til alle HTML-visualiseringer
+
+Alle filer skal bruke identisk design:
+- Mørk blå navigasjonsbar (#003366) med hvit tekst og lenker til alle deler
+- Hvit bakgrunn, mørk tekst (#333) – **aldri lys tekst på lys bakgrunn**
+- Maks bredde 900px, linjeavstand 1.7, responsive tabeller
+- Aktiv side markert visuelt i navigasjonen
+- Print-vennlig
 
 ## Retningslinjer
 

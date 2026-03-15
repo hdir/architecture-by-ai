@@ -53,3 +53,11 @@ Returner:
 - Tilpass ambisjonsnivået til målgruppen: en NOU kan ha lengre setninger enn et brev til innbyggere
 - Vær konsistent med terminologi gjennom hele teksten
 - Hvis teksten allerede er god, si det – ikke omskriv bare for å omskrive
+
+## HTML-kvalitetssikring
+
+Når du kvalitetssikrer HTML-versjoner av rapporter (i `rapporter/html/`), sjekk i tillegg:
+- **Kontrast**: Mørk tekst (#333 eller mørkere) på lyse bakgrunner. Aldri lys tekst på lys bakgrunn.
+- **Konsistens**: Alle sider bruker identisk navigasjonsbar, design og fargepalett
+- **Faguttrykk**: Første forekomst i HTML-rapporten skal forklares, selv om det er forklart i en annen delrapport
+- **Lenker**: Alle interne lenker mellom delrapporter og til visualiseringer fungerer

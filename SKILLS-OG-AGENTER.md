@@ -18,9 +18,9 @@ Aktiveres ved skriving eller gjennomgang av dokumenter for offentlig sektor. Bas
 
 **Når brukes den?** Ved skriving av rapporter, anbefalinger eller kommunikasjon rettet mot beslutningstakere eller innbyggere.
 
-### archimate-mermaid-modellering
+### archimate-modellering
 
-Aktiveres ved opprettelse av arkitekturdiagrammer. Mapper ArchiMate-konsepter til Mermaid-syntaks med fargekonvensjoner per lag (forretning=gul, applikasjon=blå, teknologi=grønn).
+Aktiveres ved opprettelse av arkitekturdiagrammer. Mapper ArchiMate-konsepter til PlantUML (.puml) og Draw.io (.drawio) med fargekonvensjoner per lag (forretning=gul, applikasjon=blå, teknologi=grønn). PlantUML brukes for tekstbaserte/automatiserte diagrammer, Draw.io for komplekse/interaktive diagrammer.
 
 **Når brukes den?** Når du skal lage arkitekturdiagrammer, visualisere systemlandskap eller modellere sammenhenger mellom lag.
 
@@ -30,9 +30,9 @@ Agenter er spesialiserte roller som kan kalles for spesifikke oppgaver. De ligge
 
 ### virksomhetsarkitekt
 
-Helhetlig koordinator som vurderer problemstillinger på tvers av forretning, applikasjon og teknologi. Kan orkestrere de andre agentene for å bygge en komplett analyse.
+Helhetlig koordinator som vurderer problemstillinger på tvers av forretning, applikasjon og teknologi. Kan orkestrere de andre agentene for å bygge en komplett analyse. Ansvarlig for å generere navigerbar HTML-rapport i `rapporter/html/` som siste steg i en utredning.
 
-**Bruk til:** Helhetsvurderinger, arkitekturanalyser, koordinert utredning.
+**Bruk til:** Helhetsvurderinger, arkitekturanalyser, koordinert utredning, HTML-rapportgenerering.
 
 ### offentlig-utreder
 
@@ -54,9 +54,9 @@ Talsmann for helsepersonells perspektiv. Vurderer hvordan løsninger påvirker k
 
 ### klarsprak-copywriter
 
-Språklig kvalitetssikrer som omskriver tekst til klarspråk etter språkloven § 9. Returnerer forbedret tekst med begrunnelse for endringene.
+Språklig kvalitetssikrer som omskriver tekst til klarspråk etter språkloven § 9. Returnerer forbedret tekst med begrunnelse for endringene. Kvalitetssikrer også HTML-rapporter for kontrast, konsistens og lenker.
 
-**Bruk til:** Kvalitetssikring av rapporter, omskriving av tekst til klarspråk, tilpasning til målgruppe.
+**Bruk til:** Kvalitetssikring av rapporter og HTML, omskriving av tekst til klarspråk, tilpasning til målgruppe.
 
 ## Samspill mellom agentene
 
@@ -69,6 +69,10 @@ virksomhetsarkitekt (koordinator)
 ```
 
 Virksomhetsarkitekten er den sentrale agenten som kan orkestrere de andre. Hver agent kan også kalles direkte for spesifikke oppgaver.
+
+### Ferdigstillingsfase
+
+Når en utredning er komplett, genererer virksomhetsarkitekten en navigerbar HTML-rapport i `rapporter/html/`. Klarspråk-copywriteren kvalitetssikrer HTML-rapporten for språk, kontrast og konsistens.
 
 ## Avgrensning mot CLAUDE.md
 
