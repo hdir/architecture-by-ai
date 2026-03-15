@@ -66,10 +66,14 @@ Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHD
 /
 ├── CLAUDE.MD (denne filen)
 ├── kilder/
-    └── kilder.json (URL-er som skal gjennomgås for å finne informasjon om EHDS)
+│   └── kilder.json (URL-er som skal gjennomgås for å finne informasjon om EHDS)
 │   └── andre filer som beskriver EHDS kan også ligge i denne mappen
 ├── rapporter/
 │   └── [ulike typer rapporter og vurderinger opprettet av Claude]
+│   └── html/
+│       └── index.html (navigerbar HTML-versjon av utredningen)
+│       └── [delrapport].html (én per delrapport)
+│       └── visualiseringer.html (lenker til visualiseringer)
 └── visualiseringer/
     └── [ulike type visualiseringer opprettet av Claude]
 └── utdaterte/
@@ -90,6 +94,43 @@ Norsk helsenett har lagt ut informasjon om den tekniske implementasjonen for EHD
 - Oppdater relevant index.md med metadata om endringen
 - Inkluder: filnavn, beskrivelse, endret dato
 - Bruk filnavn uten datoer siden filer vil bli løpende revidert
+
+### Generer HTML-rapport
+
+Når en utredning er ferdigstilt (alle delrapporter og visualiseringer er på plass), skal det alltid genereres en navigerbar HTML-versjon i `rapporter/html/`. HTML-rapporten gjør utredningen tilgjengelig for lesere som ikke bruker markdown.
+
+**Struktur for HTML-rapporten:**
+
+```
+rapporter/html/
+├── index.html          (forside med innholdsfortegnelse, ordliste og kildeliste)
+├── ledersammendrag.html (ledersammendraget fra den samlede rapporten)
+├── [delrapport].html    (én HTML-fil per delrapport)
+├── visualiseringer.html (lenker til alle visualiseringer i ../../visualiseringer/)
+```
+
+**Krav til HTML-filer:**
+
+* Selvstendige HTML-filer med innebygd CSS – ingen eksterne avhengigheter
+* Identisk navigasjonsbar på toppen av alle sider med lenker til alle deler
+* Designprofil: mørk blå header (#003366) med hvit tekst, hvit bakgrunn, mørk tekst (#333)
+* **VIKTIG: God kontrast** – alltid mørk tekst på lyse bakgrunner, aldri lys tekst på lys bakgrunn
+* Maks bredde 900px, linjeavstand 1.7, system-ui font
+* Responsive tabeller med overflow-x wrapper
+* Print-vennlig med @media print
+* Aktiv side markert visuelt i navigasjonen
+* Ordliste med alle forkortelser brukt i utredningen
+* Samlet kildeliste med klikkbare lenker
+* Visualiseringer-siden lenker til HTML-filer i ../../visualiseringer/ med target="_blank"
+
+**Arbeidsflyt:**
+
+1. Ferdigstill alle delrapporter i markdown
+2. Ferdigstill alle visualiseringer
+3. Konverter hver delrapport til HTML med identisk design og navigasjon
+4. Opprett index.html som forside med innholdsfortegnelse
+5. Opprett visualiseringer.html med lenker til alle visualiseringer
+6. Verifiser at alle lenker fungerer og at kontrasten er god
 
 ### Generer rapporter
 
