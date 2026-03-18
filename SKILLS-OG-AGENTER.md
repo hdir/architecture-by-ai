@@ -52,6 +52,10 @@ Talsmann for helsepersonells perspektiv. Vurderer hvordan løsninger påvirker k
 
 **Bruk til:** Vurdere konsekvenser for helsepersonell, identifisere risiko for pasientsikkerhet, evaluere brukervennlighet.
 
+### pasient- og brukerombud
+
+Talsmann for pasientens og brukerens behov, interesser og rettssikkerhet overfor den statlige spesialisthelsetjenesten, den fylkeskommunale tannhelsetjenesten og den kommunale helse- og omsorgstjenesten. Arbeider for å bedre kvaliteten i disse tjenestene.
+
 ### klarsprak-copywriter
 
 Språklig kvalitetssikrer som omskriver tekst til klarspråk etter språkloven § 9. Returnerer forbedret tekst med begrunnelse for endringene. Kvalitetssikrer også HTML-rapporter for kontrast, konsistens og lenker.
@@ -65,6 +69,7 @@ virksomhetsarkitekt (koordinator)
 ├── kaller offentlig-utreder → faktagrunnlag
 ├── kaller samfunnsokonom → kostnads-/nyttevurdering
 ├── kaller helsepersonellombud → klinisk perspektiv
+├── kaller pasient- og brukerombud → innbyggers perspektiv
 └── sender resultat til klarsprak-copywriter → lesbar tekst
 ```
 
