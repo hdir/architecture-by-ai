@@ -13,3 +13,16 @@ Use-cases for AI innen arkitektur.
 - Dataanalyse - av mange datakilder i henhold til problemstilinger som er viktig for å avklare mål og kapabiliter
 - Visualisering av arkitekturartefakter for å vise sammenhenger som er vanskelig å få oversikt over som tekst
 - Strukturering av informasjon - syntese av mange dokumenter, oppsummering
+
+```mermaid
+mindmap
+   ((Use-cases AI))
+      Dataanalyse
+         (Innsikt i data)
+         (Hvordan henger data sammen)
+      Visualisering
+         (oversikt og sammenhenger)
+         (mål, verdi, prosesser og roller)
+      Strukturering av informasjon
+         (Oversikt over data)
+```
