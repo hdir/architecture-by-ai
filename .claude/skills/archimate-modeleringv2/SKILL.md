@@ -1,5 +1,5 @@
 ---
-name: archimate-modellering
+name: archimate-modelleringv2
 description: Use when creating architecture diagrams or visual models. Maps ArchiMate enterprise architecture concepts to PlantUML and Draw.io formats. Use PlantUML for text-based automated diagrams, Draw.io for complex interactive diagrams.
 ---
 
