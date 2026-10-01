@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Metadatamodell for kildedokumenter",
+  "description": "JSON Schema for front matter in Markdown source documents under background/*/markdown. Provenance is a practical subset of FHIR R5 Provenance, not a complete FHIR resource.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "document_type",
+    "information_categories",
+    "creator",
+    "language",
+    "access_level",
+    "web_published",
+    "normative_level",
+    "status",
+    "metadata_confidence"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable local identifier, for example DF-0001."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "alternative_title": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "report",
+        "directive_or_assignment",
+        "strategy_or_plan",
+        "analysis_or_evaluation",
+        "legal_assessment",
+        "guidance",
+        "standard_or_requirement",
+        "consultation_response",
+        "submission_or_feedback",
+        "research_publication",
+        "presentation_or_note",
+        "summary",
+        "other"
+      ]
+    },
+    "information_categories": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "descriptive",
+          "empirical_evidence",
+          "stakeholder_view",
+          "problem_or_challenge",
+          "need_or_requirement",
+          "goal_or_outcome",
+          "proposal_or_measure",
+          "recommendation",
+          "decision_or_mandate",
+          "legal_or_regulatory",
+          "technical_or_architectural",
+          "organizational_or_governance",
+          "economic_or_financial",
+          "risk_or_security",
+          "privacy_or_data_protection",
+          "implementation_or_operations",
+          "evaluation_or_effects",
+          "research_or_method",
+          "definitions_or_terminology",
+          "other"
+        ]
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "creator": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Agent"
+      }
+    },
+    "contributor": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Agent"
+      }
+    },
+    "publisher": {
+      "$ref": "#/$defs/Agent"
+    },
+    "publication_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "modified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When both dates are present, this must not precede publication_date."
+    },
+    "language": {
+      "type": "string",
+      "enum": ["nb", "nn", "no", "en", "mul"]
+    },
+    "access_level": {
+      "type": "string",
+      "enum": ["web_published", "open", "restricted", "secret"]
+    },
+    "web_published": {
+      "type": "boolean"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "original_document": {
+      "$ref": "#/$defs/OriginalDocument"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Provenance"
+      },
+      "description": "Each entry describes one activity that generated or changed the Markdown target."
+    },
+    "normative_level": {
+      "type": "string",
+      "enum": [
+        "none",
+        "descriptive",
+        "advisory",
+        "guideline",
+        "recommended_standard",
+        "mandatory_standard",
+        "legal_or_regulatory",
+        "formal_decision"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["current", "superseded", "draft", "historical", "unknown"]
+    },
+    "version": {
+      "type": "string"
+    },
+    "related_documents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "metadata_confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "web_published": { "const": true },
+          "access_level": { "not": { "const": "web_published" } }
+        },
+        "required": ["web_published", "access_level"]
+      },
+      "then": {
+        "properties": {
+          "notes": { "type": "string", "minLength": 1 }
+        },
+        "required": ["notes"]
+      }
+    }
+  ],
+  "$defs": {
+    "Agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "agent_type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agent_type": {
+          "type": "string",
+          "enum": [
+            "person",
+            "organization",
+            "group",
+            "device",
+            "software",
+            "patient",
+            "practitioner_role",
+            "care_team",
+            "related_person",
+            "public_body",
+            "company",
+            "unknown"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affiliation": {
+          "type": "string"
+        }
+      }
+    },
+    "Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "$ref": "#/$defs/HttpUrl"
+        },
+        "retrieved_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "source_identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "OriginalDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "online_status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "type": "string",
+          "enum": ["pdf", "docx", "html", "csv", "md", "other"]
+        },
+        "online_url": {
+          "$ref": "#/$defs/HttpUrl"
+        },
+        "online_status": {
+          "type": "string",
+          "enum": ["verified", "candidate", "not_found", "not_checked", "not_applicable"]
+        },
+        "retrieved_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "if": {
+        "properties": {
+          "online_status": { "const": "verified" }
+        },
+        "required": ["online_status"]
+      },
+      "then": {
+        "required": ["online_url"]
+      }
+    },
+    "Provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["activity", "agent"],
+      "properties": {
+        "activity": {
+          "$ref": "#/$defs/CodeableConcept"
+        },
+        "occurred": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "$ref": "#/$defs/Period"
+            }
+          ]
+        },
+        "recorded": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "agent": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/AgentParticipation"
+          }
+        },
+        "entity": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProvenanceEntity"
+          }
+        }
+      }
+    },
+    "CodeableConcept": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coding"
+          }
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "anyOf": [
+        { "required": ["coding"] },
+        { "required": ["text"] }
+      ]
+    },
+    "Coding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "system": {
+          "type": "string",
+          "format": "uri"
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display": {
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        { "required": ["code"] },
+        { "required": ["display"] }
+      ]
+    },
+    "AgentParticipation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["who"],
+      "properties": {
+        "who": {
+          "$ref": "#/$defs/Agent"
+        },
+        "type": {
+          "$ref": "#/$defs/CodeableConcept"
+        },
+        "role": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CodeableConcept"
+          }
+        },
+        "on_behalf_of": {
+          "$ref": "#/$defs/Agent"
+        }
+      }
+    },
+    "ProvenanceEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "what"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["revision", "quotation", "source", "instantiates", "removal"]
+        },
+        "what": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AgentParticipation"
+          }
+        }
+      }
+    },
+    "Period": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "When both are present, end must not precede start."
+    },
+    "HttpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    }
+  }
+}
