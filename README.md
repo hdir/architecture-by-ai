@@ -6,9 +6,9 @@ Repository for å teste hvordan Helsedirektoratet kan benytte AI som verktøy i 
 
 - [Skills og spesialistagenter](SKILLS-OG-AGENTER.md) – Oversikt over prosjektspesifikke skills og agenter for utredningsarbeid med Claude Code
 - [Konvertere til markdown og legg til metadata](konvertering-og-metadata-prosess.md)
-  - [script](src\convert_to_markdown.py)
-  - [metadata skjema](.claude\data\metadata-schema.md)
-  - [metadata og konvertering skill](.claude\skills\konvertering-og-metadata\SKILL.md)
+  - [script](src/convert_to_markdown.py)
+  - [metadata skjema](.claude/data/metadata-schema.md)
+  - [metadata og konvertering skill](.claude/skills/konvertering-og-metadata/SKILL.md)
 
 ## Use cases
 
